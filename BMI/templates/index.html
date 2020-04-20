@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>BMI</title>
+        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/script.js"></script>
+    </head>
+    <body>
+        <div class="form-box">
+            <h5>Learn Your Body Mass Index (BMI)</h5>
+            <div class="row">
+                <div class="six columns">
+                    <div class="six columns">
+                        <h6  class="result" style="display: none">Your BMI : </h6>
+                    </div>
+                    <div class="six columns">
+                        <h6 class="result" style="display: none;color: #33C3F0" id="result"></h6>
+                    </div>
+                </div>
+                <div class="six columns">
+                    <div class="six columns">
+                        <h6  class="result" style="display: none">Category : </h6>
+                    </div>
+                    <div class="six columns">
+                        <h6 class="result" style="display: none;color: #33C3F0" id="category"></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <form action="#">
+                    <div class="row">
+                        <div class="six columns">
+                            <h6>About You</h6>
+                        </div>
+                        <div class="six columns">
+                            <select class="u-full-width" id="choice" name="choice">
+                                <option value="english">English</option>
+                                <option value="metric">Metric</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="InputGroup"> 
+                            <input type="radio" name="gender" id="gender_male" value="male" checked/>
+                            <label class="radio_labels" for="gender_male">Male</label>
+                            <input type="radio" name="gender" id="gender_female" value="female" />
+                            <label class="radio_labels" for="gender_female">Female</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="five columns">
+                            <input id="age" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" name="age" placeholder="Age" >
+                        </div>
+                        <div class="five columns height_ft">
+                            <select class="u-full-width" id="height_ft" name="height_ft">
+                                <option value="">Height Ft.</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                            </select>
+                        </div>
+                        <div class="two columns height_ft">
+                            <select class="u-full-width" id="height_inch" name="height_inch">
+                                <option value="">In.</option>
+                                <option value="0 in">0 in</option>
+                                <option value="1 in">1 in</option>
+                                <option value="2 in">2 in</option>
+                                <option value="3 in">3 in</option>
+                                <option value="4 in">4 in</option>
+                                <option value="5 in">5 in</option>
+                                <option value="6 in">6 in</option>
+                                <option value="7 in">7 in</option>
+                                <option value="8 in">8 in</option>
+                                <option value="9 in">9 in</option>
+                                <option value="10 in">10 in</option>
+                                <option value="11 in">11 in</option>
+                            </select>
+                        </div>
+                        <div class="seven columns height_cm" style="display: none">
+                            <input id="height_cm" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" name="height_cm" placeholder="Height (cm)">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="five columns weight_lbs">
+                            <input id="weight_lbs" type="text" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" name="weight_lbs" placeholder="Current Weight (lbs)" >
+                        </div>
+                        <div class="five columns weight_kg" style="display: none;margin-left: 0px;">
+                            <input id="weight_kg" type="text"  oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" name="weight_kg" placeholder="Current Weight (Kg)" >
+                        </div>
+                    </div>
+                    <input class="button-primary" type="submit" value="Calculate" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
