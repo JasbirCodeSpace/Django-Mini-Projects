@@ -3,8 +3,8 @@
 
 ## Input :
 
-![Input Image](/input(BMI).jpg?raw=true "Input")
+![Input Image](Calc/static/images/input(BMI).jpg?raw=true "Input")
 
 ## Output :
 
-![Output Image](/output(BMI).jpg?raw=true "Output")
+![Output Image](Calc/static/images/output(BMI).jpg?raw=true "Output")
