@@ -1,5 +1,4 @@
 $(document).ready(function () {
-	$('.result').hide();
 	$('#age').attr('required', 'required');
 	$('#height_ft').attr('required', 'required');
 	$('#height_inch').attr('required', 'required');
@@ -32,45 +31,45 @@ $(document).ready(function () {
 		}
 	})
 
-	$("form").submit(function (e) {
-		e.preventDefault();
-		var BMI = 0;
-		var formData = $('form').serializeArray();
-		var data = [];
-		$.each(formData, function () {
-			data[this.name] = this.value;
-		});
+	// $("form").submit(function (e) {
+	// 	e.preventDefault();
+	// 	var BMI = 0;
+	// 	var formData = $('form').serializeArray();
+	// 	var data = [];
+	// 	$.each(formData, function () {
+	// 		data[this.name] = this.value;
+	// 	});
 
-		if (data['choice'] == "english") {
-			let weight = parseFloat(data['weight_lbs']);
-			let height = parseFloat(data['height_ft']) * 12 + parseFloat(data['height_inch']);
-			BMI = (weight / Math.pow(height, 2)) * 703;
+	// 	if (data['choice'] == "english") {
+	// 		let weight = parseFloat(data['weight_lbs']);
+	// 		let height = parseFloat(data['height_ft']) * 12 + parseFloat(data['height_inch']);
+	// 		BMI = (weight / Math.pow(height, 2)) * 703;
 
-		} else if (data['choice'] == "metric") {
-			let weight = parseFloat(data['weight_kg']);
-			let height = parseFloat(data['height_cm'] / 100);
-			BMI = (weight / Math.pow(height, 2));
+	// 	} else if (data['choice'] == "metric") {
+	// 		let weight = parseFloat(data['weight_kg']);
+	// 		let height = parseFloat(data['height_cm'] / 100);
+	// 		BMI = (weight / Math.pow(height, 2));
 
-		}
-		if (BMI < 18.5) {
-			$('#category').html('Underweight')
+	// 	}
+	// 	if (BMI < 18.5) {
+	// 		$('#category').html('Underweight')
 
-		} else if (BMI >= 18.5 && BMI <=24.9) {
-			$('#category').html('Normal weight')
+	// 	} else if (BMI >= 18.5 && BMI <=24.9) {
+	// 		$('#category').html('Normal weight')
 
-		} else if (BMI >= 25 && BMI <= 29.9) {
-			$('#category').html('Overweight')
+	// 	} else if (BMI >= 25 && BMI <= 29.9) {
+	// 		$('#category').html('Overweight')
 
-		} else if (BMI >= 30) {
-			console.log(BMI)
-			$('#category').html('Obese')
+	// 	} else if (BMI >= 30) {
+	// 		console.log(BMI)
+	// 		$('#category').html('Obese')
 
-		}
-		$('#result').html(BMI.toFixed(2));
-		$('.result').show();
+	// 	}
+	// 	$('#result').html(BMI.toFixed(2));
+	// 	$('.result').show();
 
 
-	});
+	// });
 
 
 })

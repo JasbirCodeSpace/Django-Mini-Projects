@@ -6,7 +6,7 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css'>
         <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <!-- <script src="{% static 'js/script.js' %}"></script> -->
+        <script src="{% static 'js/script.js' %}"></script>
     </head>
     <body>
         <div class="form-box">
@@ -14,18 +14,29 @@
             <div class="row">
                 <div class="six columns">
                     <div class="six columns">
-                        <h6  class="result" style="display: none">Your BMI : </h6>
+                        {% if BMI %}
+                        <h6  class="result">Your BMI : </h6>
+                        {% endif %}
+                        
                     </div>
                     <div class="six columns">
-                        <h6 class="result" style="display: none;color: #33C3F0" id="result"></h6>
+                        {% if BMI %}
+                        <h6 class="result" style="color: #33C3F0" id="result">{{BMI}}</h6>
+                        {% endif %}
+                        
                     </div>
                 </div>
                 <div class="six columns">
                     <div class="six columns">
-                        <h6  class="result" style="display: none">Category : </h6>
+                        {% if Category %}
+                        <h6  class="result" >Category : </h6>
+                        {% endif %}
                     </div>
                     <div class="six columns">
-                        <h6 class="result" style="display: none;color: #33C3F0" id="category"></h6>
+                        {% if Category %}
+                            <h6 class="result" style="color: #33C3F0" id="category">{{Category}}</h6>
+                        {% endif %}
+
                     </div>
                 </div>
             </div>
@@ -58,12 +69,12 @@
                         <div class="five columns height_ft">
                             <select class="u-full-width" id="height_ft" name="height_ft">
                                 <option value="">Height Ft.</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
+                                <option value="3 ft">3</option>
+                                <option value="4 ft">4</option>
+                                <option value="5 ft">5</option>
+                                <option value="6 ft">6</option>
+                                <option value="7 ft">7</option>
+                                <option value="8 ft">8</option>
                             </select>
                         </div>
                         <div class="two columns height_ft">
