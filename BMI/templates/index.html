@@ -30,7 +30,8 @@
                 </div>
             </div>
             <div class="box">
-                <form action="#">
+                <form method="POST">
+                    {% csrf_token %}
                     <div class="row">
                         <div class="six columns">
                             <h6>About You</h6>

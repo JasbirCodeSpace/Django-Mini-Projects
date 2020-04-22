@@ -3,4 +3,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 def BMI(request):
-	return render(request,'index.html')
+	formData = request.POST
+	if not formData:
+		return render(request,'index.html')
+	else:
+		return render(request,'index.html')
