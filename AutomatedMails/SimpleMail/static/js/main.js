@@ -1,56 +1,57 @@
+$(document).ready(function(){
 
-(function ($) {
-    "use strict";
-
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
-
-    $('.validate-form').on('submit',function(){
-        var check = true;
-
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
+$.ajaxSetup({
+  beforeSend: function (xhr, settings) {
+    function getCookie(name) {
+      var cookieValue = null;
+      if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+          var cookie = jQuery.trim(cookies[i]);
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) == (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
         }
-
-        return check;
-    });
-
-
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-        });
-    });
-
-    function validate (input) {
-        if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
-            }
-        }
-        else {
-            if($(input).val().trim() == ''){
-                return false;
-            }
-        }
+      }
+      return cookieValue;
     }
-
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).addClass('alert-validate');
+    if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+      // Only send the token to relative URLs i.e. locally.
+      xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
     }
+  }
+});
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
+$('form').submit(function(event){
+let formData = $('form').serializeArray();
+let formated_data = {};
+$.each(formData,function(i,key){
+formated_data[key.name] = key.value;
+})
+	$.ajax({
+		type:'POST',
+		url:'SendMail',
+		data:formated_data,
+		success:function(response){
+			if(response.status==1){
+			$('.alert').text("Successfully sent mail");
+			$('.alert').removeClass("alert-danger");
+			$('.alert').addClass("alert-success");
+			}else{
+			$('.alert').text("Error while sending mail");
+			$('.alert').removeClass("alert-success");
+			$('.alert').addClass("alert-danger");
+			}
+		},
+		error:function(error){
+			$('.alert').text("Error while sending mail");
+			$('.alert').removeClass("alert-success");
+			$('.alert').addClass("alert-danger");
 
-        $(thisAlert).removeClass('alert-validate');
-    }
-    
-    
-
-})(jQuery);
+		}
+	})
+	event.preventDefault();
+})
+})
