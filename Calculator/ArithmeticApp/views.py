@@ -9,5 +9,5 @@ def Arithmetic(request):
 	oper = request.POST['oper']
 	print(request.POST)
 	return HttpResponse(format(eval(input1+oper+input2),'.2f'))
-def home(request):
-	return render(request,'index.html')
+def ArithmeticHome(request):
+	return render(request,'Arithmetic.html')
