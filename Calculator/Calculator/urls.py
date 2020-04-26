@@ -18,6 +18,5 @@ from django.urls import path,include
 
 urlpatterns = [
 	path('',include('ArithmeticApp.urls')),
-	path('ArithmeticCalc',include('ArithmeticApp.urls')),
     path('admin/', admin.site.urls),
 ]
