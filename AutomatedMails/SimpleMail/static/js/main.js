@@ -1,5 +1,19 @@
 $(document).ready(function(){
 
+	var contactTable = $('#contactDetails').DataTable({
+		"ajax":{
+			"processing":true,
+			"url":"/getContacts",
+			"dataSrc": "",
+		},
+		 "columns": [
+             { "data": "fields.Name","title":"Name"},
+             { "data": "fields.EmailId","title":"Email Id"}
+             ]
+
+	});
+
+
 $.ajaxSetup({
   beforeSend: function (xhr, settings) {
     function getCookie(name) {
@@ -54,4 +68,5 @@ formated_data[key.name] = key.value;
 	})
 	event.preventDefault();
 })
+
 })
