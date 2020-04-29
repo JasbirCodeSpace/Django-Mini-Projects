@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+if(contactData){
 	var contactTable = $('#contactDetails').DataTable({
 		"ajax":{
 			"processing":true,
@@ -12,6 +13,7 @@ $(document).ready(function(){
              ]
 
 	});
+}
 
 
 $.ajaxSetup({
@@ -69,4 +71,20 @@ formated_data[key.name] = key.value;
 	event.preventDefault();
 })
 
+
+  $("a").on('click', function(event) {
+
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+ 
+        window.location.hash = hash;
+      });
+    } 
+  });
 })
