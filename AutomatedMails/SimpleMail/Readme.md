@@ -3,8 +3,7 @@
 ### Sending simple text mail using gmail smtp 
 > ### for allowing gmail smtp to work turn on the less secure app feature here https://myaccount.google.com/lesssecureapps
 
-### Input :
-![Input](static/images/Input.jpg?raw=true "Input Screen")
-
-### Output :
-![Output](static/images/Output.jpg?raw=true "Output Screen")
+<p float="left">
+  <img src="static/images/Input.jpg" width="45%" height="400px" title="Input"/>
+  <img src="static/images/Output.jpg" width="45%" height="400px" title="Output"/> 
+</p>
