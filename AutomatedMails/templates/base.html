@@ -27,50 +27,14 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+	<script type="text/javascript">
+		contactData = "{{database}}"
+	</script>
 </head>
 <body>
 
-
-	<div class="container-contact100">
-		<div class="wrap-contact100">
-
-			<form class="contact100-form validate-form">
-				<span class="contact100-form-title">
-					Send Email
-				</span>
-				<div class="alert"></div>
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="email" name="email" placeholder="E-mail">
-					<!-- <span class="focus-input100"></span> -->
-				</div>
-				<div class="wrap-input100 validate-input">
-					<input class="input100" type="text" name="subject" placeholder="Subject" required="required">
-					<!-- <span class="focus-input100"></span> -->
-				</div>
-				<div class="wrap-input100 validate-input" data-validate = "Please enter your message">
-					<textarea class="input100" name="message" placeholder="Your Message" pattern="(.)+" required="required"></textarea>
-					<!-- <span class="focus-input100"></span> -->
-				</div>
-
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
-						<span>
-							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
-							Send
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
-
-	<div class="contactTable table-responsive">
-			<table id="contactDetails" class="table table-striped table-bordered" style="width:100%">
-			</table>
-		</div>
-	</div>
-
-
-
+{% block content %}
+{% endblock %}
 
 
 <!--===============================================================================================-->

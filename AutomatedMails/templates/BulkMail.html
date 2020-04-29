@@ -1,0 +1,41 @@
+
+{%extends 'base.html' %}
+{% block content %}
+<div class="link">
+	<a href="#tableSection" id="linkTag">Contact Data</a>
+</div>
+	<div class="container-contact100">
+		<div class="wrap-contact100">
+
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+					Send Bulk Emails
+				</span>
+				<div class="alert"></div>
+				<div class="wrap-input100 validate-input">
+					<input class="input100" type="text" name="subject" placeholder="Subject" required="required">
+					<!-- <span class="focus-input100"></span> -->
+				</div>
+				<div class="wrap-input100 validate-input" data-validate = "Please enter your message">
+					<textarea class="input100" name="message" placeholder="Your Message" pattern="(.)+" required="required"></textarea>
+					<!-- <span class="focus-input100"></span> -->
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn">
+						<span>
+							<i class="fa fa-paper-plane-o m-r-6" aria-hidden="true"></i>
+							Send
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+</div>
+	<div class="container-contact100">
+	<div class="contactTable table-responsive" id="tableSection">
+			<table id="contactDetails" class="table table-striped table-bordered" style="width:100%">
+			</table>
+		</div>
+	</div>
+{% endblock %}
